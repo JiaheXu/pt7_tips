@@ -15,7 +15,6 @@ you should connect your computer to pt-007 with an ethernet cable. For the netwo
     mmpug sync -- mmpug@10.3.1.7 
 this cmd will sync your code to pt-007, you should have your code in mmpug_ws on your computer, to install mmpug_ws please follow [this](https://bitbucket.org/castacks/mmpug_ugv/src/develop/docs/getting_started.md) 
 
-
 # enter docker
     docker-join.bash -n mmpug_estimation 
 this cmd will enter the docker env, there are other docker envs suck as mmpug_common mmpug_driver, you can enter anyone you need.
@@ -24,6 +23,13 @@ this cmd will enter the docker env, there are other docker envs suck as mmpug_co
 after you enter the docker env, go to mmpug_ugv/src/mmpug_{env} you need and use catkin build for a normal build progress. 
 in the docker env, we cannot use catkin clean cmd, we have to manually delete the previous compiling files.
 
+# run everything at once
+    mmpug launch --launch super_odom
+this cmd will run all the docker envs in mmpug, you can check each modules' status on a tmux terminal.
+
 # after you finish
     mmpug launch --stop 
 please run this cmd to close all the docker envs, otherwise it will cause unexpected errors.
+
+# launch things on basestation
+just use the same command you launch in payloads.
