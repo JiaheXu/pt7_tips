@@ -1,0 +1,63 @@
+sudo chown -R mmpug:mmpug /external
+
+
+sudo apt-get update -y
+sudo apt upgrade -y
+sudo apt-get install -y libgtk-3-dev apt-utils libgtk-3-dev python3-pip openssh-server chrony
+
+
+sudo pip install pyopenssl wheel PyYAML pexpect python-dotenv
+sudo pip3 install wheel setuptools shyaml psutil rospkg jinja2==3.0.3
+
+nm-connection-editor
+nmcli connection up eth0 
+
+sudo systemctl status syncr5clock.service
+sudo systemctl enable syncr5clock.service
+sudo systemctl start syncr5clock.service
+
+https://blog.csdn.net/Hunter_H1/article/details/120197742
+
+roslaunch --wait mmpug_drivers_core drivers.launch launch_cameras:=false launch_joy:=false
+
+roslaunch --wait mmpug_estimation_core estimation.launch voxel_size:=0.2 use_super_odometry:=true launch_rc_vio:=false launch_spot_vio:=false use_loop_closure:=false sim_loop_closure:=true
+
+pip2:
+  common:
+    - wheel
+    #- setuptools
+    - PyYAML
+    - pexpect
+    - python-dotenv
+    - Jinja2
+    #- psutil
+
+pip3:
+  common:
+    - wheel
+    - setuptools
+    - shyaml
+    - psutil
+    - rospkg
+
+######################################################################################################
+undefined reference to `exp@GLIBC_2.29':
+https://github.com/bblanchon/pdfium-binaries/issues/82#issuecomment-1160190986
+
+/usr/lib/aarch64-linux-gnu$ strings libstdc++.so.6 | grep GLIBCXX
+
+https://blog.csdn.net/Hunter_H1/article/details/120197742
+
+https://stackoverflow.com/questions/72513993/how-to-install-glibc-2-29-or-higher-in-ubuntu-18-04
+
+https://stackoverflow.com/questions/72513993/how-to-install-glibc-2-29-or-higher-in-ubuntu-18-04
+
+/usr/lib/aarch64-linux-gnu
+
+sudo ln -sf /usr/local/glibc/lib/libm-2.29.so libm.so.6
+
+sudo cp /usr/local/glibc/lib/libm-2.29.so /usr/lib/aarch64-linux-gnu
+
+strings /usr/lib/aarch64-linux-gnu/libm.so.6 | grep GLIBC_
+
+#####################################################################################################
