@@ -2,14 +2,20 @@ Tips on payload workspace
 ===========================
 
 here are the tips for devloping on payloads. when you work with payloads you need to:
-* 1. sync the code to payload
+* 1. sync the code and time to payload
 * 2. enter corresponding docker
 * 3. compile your code
 * 4. run your code
 * 4. close all the docker envs
 
-# connection to pt-007
-you should connect your computer( a basestaion or whatever) to pt-007 with an ethernet cable. For the network settings, disable ipv6 and dns in ipv4. Set the remaining params in ipv4 addresses as 10.3.1.20x (x = 0-9) and netmask as 255.255.0.0 and gateway 10.3.0.1
+# install the mmpug system manager in your computer
+to install mmpug_ws please follow [this](https://bitbucket.org/castacks/mmpug_ugv/src/develop/docs/getting_started.md) 
+
+# connect to payload (pt-007 for example)
+you should connect your computer( a basestaion or whatever) to the payload with an ethernet cable. For the network settings, disable ipv6 and dns in ipv4. Set the remaining params in ipv4 addresses as 10.3.1.20x (x = 0-9) and netmask as 255.255.0.0 and gateway 10.3.0.1
+
+# sync the time of payload (pt-007 for example)
+    payload_sync_clock -- mmpug@10.3.1.7 (10.3.1.{$payload_number} for other payloads)
 
 # sync code from your computer/basestation
     mmpug sync -- mmpug@10.3.1.7 (10.3.1.{$payload_number} for other payloads)
