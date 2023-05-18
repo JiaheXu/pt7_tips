@@ -43,6 +43,3 @@ in the docker env, we cannot use catkin clean cmd, we have to manually delete th
 # after you finish
     mmpug launch --stop 
 please run this cmd to close all the docker envs, otherwise it will cause unexpected errors.
-
-# launch things on basestation
-just use the same command you launch in payloads.
