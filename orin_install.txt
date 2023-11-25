@@ -1,0 +1,30 @@
+https://bitbucket.org/castacks/orin_agx_flash/src/master/
+3:23
+git submodule update --init --recursive
+./scripts/full_process.sh （已编辑） 
+3:25
+sudo apt install chrony
+https://bitbucket.org/castacks/mmpug_r5timesync/src/orin_agx/syncr5clock/
+git checkout orin_agx
+cd syncr5clock
+make
+sudo make install
+
+
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+
+sudo systemctl enable syncr5clock
+sudo systemctl start syncr5clock
+sudo systemctl restart nmea_broadcaster
+sudo systemctl enable nmea_broadcaster
+sudo systemctl start nmea_broadcaster
+
+WARNING: The script pbr is installed in '/home/mmpug/.local/bin' which is not on PATH.
+
+sudo chmod a+wrx /dev/ttyTHS0
+
