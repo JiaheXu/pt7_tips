@@ -2,16 +2,33 @@ ContinuousFactoredEncoderNetwork
 forward()
 concatenated_latent_z = torch.cat([robot_latent_z, env_latent_z],axis=-1)
 
-
 ContinuousSequentialFactoredEncoderNetwork
-
+from ContinuousFactoredEncoderNetwork
 ContinuousFactoredSoftEncoderNetwor
-
+from ContinuousFactoredEncoderNetwork
 
 
 PolicyManager_BatchJoint
 from ContinuousSequentialFactoredEncoderNetwork
+class PolicyManager_BatchJointQueryMode(PolicyManager_BatchJoint):
+from PolicyManager_BatchJoint
+
+
 
 
 class PolicyManager_Pretrain(PolicyManager_BaseClass):
 from ContinuousFactoredEncoderNetwork
+
+class PolicyManager_Imitation(PolicyManager_Pretrain, PolicyManager_BaselineRL):
+from PolicyManager_Pretrain
+
+class PolicyManager_BatchPretrain(PolicyManager_Pretrain):
+from class PolicyManager_Pretrain(PolicyManager_BaseClass):
+
+
+* most likely *
+class PolicyManager_Joint(PolicyManager_BaseClass):
+from PolicyManager_Pretrain
+
+class PolicyManager_Transfer(PolicyManager_BaseClass):
+from PolicyManager_Pretrain
