@@ -1,5 +1,8 @@
 sudo chown -R mmpug:mmpug /external
 
+sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
+sudo pip3 install pyopenssl
+sudo pip3 install pyopenssl --upgrade
 
 sudo apt-get update -y
 sudo apt upgrade -y
