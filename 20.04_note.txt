@@ -1,4 +1,6 @@
-sudo chown -R mmpug:mmpug /external
+sudo chown -R airlab:airlab /external
+
+sudo chmod a+wrx /dev/ttyTHS*
 
 sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
 sudo pip3 install pyopenssl
