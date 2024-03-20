@@ -1,5 +1,7 @@
 sudo chown -R airlab:airlab /external
 
+192.168.1.100 local
+192.168.1.201 velodyne
 sudo chmod a+wrx /dev/ttyTHS*
 
 sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
