@@ -17,6 +17,7 @@ sudo pip install pyopenssl wheel PyYAML pexpect python-dotenv
 sudo pip3 install wheel setuptools shyaml psutil rospkg jinja2==3.0.3
 
 pip3 install docker==6.1.3
+sudo apt-cache show nvidia-jetpack
 
 nm-connection-editor
 nmcli connection up eth0 
