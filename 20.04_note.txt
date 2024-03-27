@@ -4,6 +4,8 @@ sudo chown -R airlab:airlab /external
 192.168.1.201 velodyne
 sudo chmod a+wrx /dev/ttyTHS*
 
+sdkmanager --archived-versions
+
 sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
 sudo pip3 install pyopenssl
 sudo pip3 install pyopenssl --upgrade
