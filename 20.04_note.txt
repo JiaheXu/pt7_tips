@@ -1,5 +1,9 @@
 sudo chown -R airlab:airlab /external
 
+        # rgb = bgr[...,::-1].copy()
+        # bgr = rgb[...,::-1].copy()
+        # gbr = rgb[...,[2,0,1]].copy()
+
 192.168.1.100 local
 192.168.1.201 velodyne
 sudo chmod a+wrx /dev/ttyTHS*
