@@ -1,5 +1,11 @@
 conda config --set auto_activate_base false
-gst-launch-1.0 -v udpsrc port=5000 ! "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtph264depay ! h264parse ! decodebin ! videoconvert ! fpsdisplaysink sync=false
+gst-launch-1.0 -v udpsrc port=5000 ! "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! 
+gst-launch-1.0 udpsrc port=5000 ! application/x-rtp,clock-rate=90000,payload=96 !  queue ! rtph264depay ! h264parse ! avdec_h264 !  queue ! 
+
+autovideoconvert ! fpsdisplaysink
+
+
+rtph264depay ! h264parse ! decodebin ! videoconvert ! fpsdisplaysink sync=false
 export export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
 sudo chown -R airlab:airlab /external
 
