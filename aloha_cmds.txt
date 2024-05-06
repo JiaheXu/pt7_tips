@@ -1,0 +1,17 @@
+roslaunch interbotix_xsarm_control xsarm_control.launch robot_model:=wx250s
+
+rosservice call /wx250s/torque_enable "{cmd_type: 'group', name: 'all', enable: false}"
+
+
+roslaunch interbotix_xsarm_moveit xsarm_moveit.launch robot_model:=wx250s use_actual:=true dof:=6
+
+
+roslaunch interbotix_xsarm_moveit_interface xsarm_moveit_interface.launch robot_model:=wx250s use_cpp_interface:=true use_actual:=true dof:=6
+
+
+roslaunch interbotix_xsarm_moveit_interface xsarm_moveit_interface.launch robot_model:=wx250s use_cpp_interface:=true use_fake:=true dof:=6
+
+
+roslaunch interbotix_xsarm_moveit_interface xsarm_moveit_interface.launch robot_model:=wx250s use_python_interface:=true use_actual:=true dof:=6
+
+roslaunch interbotix_xsarm_moveit_interface xsarm_moveit_interface.launch robot_model:=wx250s use_python_interface:=true use_fake:=true dof:=6
