@@ -4,6 +4,9 @@ gst-launch-1.0 udpsrc port=5000 ! application/x-rtp,clock-rate=90000,payload=96 
 
 autovideoconvert ! fpsdisplaysink
 
+sudo apt install locate
+sudo updatedb
+locate opencv
 
 rtph264depay ! h264parse ! decodebin ! videoconvert ! fpsdisplaysink sync=false
 export export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
