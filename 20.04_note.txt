@@ -21,6 +21,9 @@ sudo chown -R airlab:airlab /external
 sudo chmod a+wrx /dev/ttyTHS*
 pip3 install jetson-stats
 
+ID=0
+sudo /usr/sbin/nvpmodel -m $ID
+
 sdkmanager --archived-versions
 
 sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
