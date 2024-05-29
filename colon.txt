@@ -1,0 +1,109 @@
+
+sudo systemctl restart nmea_broadcaster
+
+source /opt/ros/humble/setup.bash
+
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc)
+
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc) --packages-above drivers_core
+
+
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc) --packages-above aist_wheelchair
+
+colcon build --symlink-install --packages-ignore proto2ros_tests
+
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc) --packages-above velodyne_pointcloud
+
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc) --packages-above spot_driver
+
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --parallel-workers $(nproc) --packages-above aist_wheelchair copley_ros
+
+source /opt/ros/humble/setup.bash
+
+source ~/mmpug_ws/src/airlab_ros2/install/setup.bash
+
+ros2 launch ess_imu_ros2_uart_driver g330_g365_g366_raw_launch.py
+
+ros2 launch ess_imu_ros2_uart_driver g365_launch.xml
+
+ros2 launch ess_imu_ros2_uart_driver g330_g365_g366_raw_launch.py
+
+ros2 launch velodyne velodyne-all-nodes-VLP16-launch.py
+
+
+cd ~/mmpug_ws/src/airlab_ros2/
+
+
+source /opt/ros/humble/setup.bash
+source ~/mmpug_ws/src/airlab_ros2/install/setup.bash
+ros2 launch aist_wheelchair teleop.launch.py
+
+ros2 run spot_examples walk_forward --robot mmpug
+
+ros2 run spot_examples spot_driver
+
+ros2 service call /mt001/claim std_srvs/srv/Trigger
+ros2 service call /mt001/release std_srvs/srv/Trigger
+
+ros2 service call /mt001/power_on std_srvs/srv/Trigger
+ros2 service call /mt001/stand std_srvs/srv/Trigger
+ros2 service call /mt001/sit std_srvs/srv/Trigger
+ros2 service call /mt001/power_off std_srvs/srv/Trigger
+
+ros2 service call /mmpug/sit std_srvs/srv/Trigger
+
+ros2 launch basestation_joy mt001.xml
+ros2 launch basestation_joy mt005.xml
+
+ros2 launch basestation_joy test.xml
+
+ros2 launch autonomy_executive launch.xml
+ros2 launch autonomy_executive mt005.xml
+ros2 launch autonomy_executive test.xml
+
+
+ros2 launch drivers_core launch.xml
+
+ros2 launch robot_behavior_tree mt001.xml
+
+ros2 launch robot_behavior_executive robot_behavior_executive_node.launch.xml
+ros2 launch robot_behavior_executive test.xml
+
+ros2 launch zed_wrapper zed_camera.launch.py camera_model:=zedx
+
+sudo apt install ros-humble-nmea-msgs
+
+sudo apt install ros-humble-geographic-msgs
+
+
+sudo systemctl restart nmea_broadcaster
+
+./ros-humble-bosdyn_msgs_4.0.0-2-jammy_arm64.run
+
+
+source /opt/ros/humble/setup.bash
+source ~/mmpug_ws/src/airlab_ros2/install/setup.bash
+
+
+
+ros2 launch spot_driver spot_driver.launch.py config_file:=/home/developer/mmpug_ws/src/airlab_ros2/src/robot/spot_ros2/spot_driver/config/spot_ros_example.yaml spot_name:=mt001 publish_point_clouds:=False launch_rviz:=False uncompress_images:=False publish_compressed_images:=False
+
+
+ros2 launch spot_driver spot_driver.launch.py config_file:=/home/developer/mmpug_ws/src/airlab_ros2/src/robot/spot_ros2/spot_driver/config/spot_ros_example.yaml publish_point_clouds:=False launch_rviz:=False uncompress_images:=False publish_compressed_images:=False
+
+
+
+
+ros2 run spot_examples spot_driver
+
+3.19.4
+
+ros-humble-ament-lint-auto
+ros-humble-ament-cmake-cppcheck
+ros-humble-ament-cmake-cpplint
+ros-humble-ament-cmake-uncrustify
+ros-humble-ament-cmake-flake8
+ros-humble-ament-cmake-pep257
+ros-humble-ament-cmake-xmllint
+ros-humble-common-interfaces
+
