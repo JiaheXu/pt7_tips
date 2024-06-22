@@ -4,7 +4,12 @@ gst-launch-1.0 udpsrc port=5000 ! application/x-rtp,clock-rate=90000,payload=96 
 
 autovideoconvert ! fpsdisplaysink
 
+
+sudo apt install -y nvidia-docker2
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 sudo apt install locate
+
 sudo updatedb
 locate opencv
 
