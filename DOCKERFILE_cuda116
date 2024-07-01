@@ -32,7 +32,7 @@ RUN pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfile
 # COPY scripts/ ./scripts/
 # COPY setup.py .
 # COPY README.md .
-RUN apt install graphviz -y
+RUN apt install libgl1-mesa-glx graphviz -y
 
 RUN pip install pytorch-lightning==1.5.10
 RUN pip install wandb
