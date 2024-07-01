@@ -3,7 +3,7 @@
 FROM nvidia/cuda:11.6.1-runtime-ubuntu20.04
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /ws
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
@@ -32,9 +32,9 @@ RUN pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfile
 # COPY scripts/ ./scripts/
 # COPY setup.py .
 # COPY README.md .
-RUN apt install libgl1-mesa-glx graphviz -y
+RUN apt update && apt install libgl1-mesa-glx graphviz -y
 
-RUN pip install pytorch-lightning==1.5.10
+RUN pip install pytorch-lightning==1.9.0
 RUN pip install wandb
 RUN pip install matplotlib
 RUN pip install colour
