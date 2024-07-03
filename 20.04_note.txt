@@ -3,6 +3,8 @@ gst-launch-1.0 -v udpsrc port=5000 ! "application/x-rtp, media=(string)video, cl
 gst-launch-1.0 udpsrc port=5000 ! application/x-rtp,clock-rate=90000,payload=96 !  queue ! rtph264depay ! h264parse ! avdec_h264 !  queue ! 
 
 autovideoconvert ! fpsdisplaysink
+pip install https://github.com/ompl/ompl/releases/download/prerelease/ompl-1.6.0-cp39-cp39-manylinux_2_28_x86_64.whl
+
 
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-11.7/lib64
 export CUDA_HOME=/usr/local/cuda-11.7
