@@ -48,5 +48,31 @@ def main():
     bagOut.close()
 
 
+        self.subscription = self.create_subscription(CompressedImage,'/iphone/regular_view/arframe_image/compressed',
+        self.image_callback,
+        10) #update this to a foxglove node?
+
+        #self.image_queue = deque()
+
+        #self.timer = self.create_timer(0.2, self.image_consumer_callback)
+
+        self.frame_buffer = deque()
+        self.buffer_size = 60 
+
+        # If multithreading, uncomment the following line
+        #self.image_queue_lock = mp.Lock()
+
+        self.last_timestamp = None
+        self.frame_gap_threshold = 0.5  # Set threshold in seconds
+        self.frame_count = 0
+        self.detection_interval = 30  # Detect face every 30 frames, adjust as needed
+
+
+    def image_callback(self, msg):
+        self.get_logger().info("Received image message")
+        cv_image = self.bridge.compressed_imgmsg_to_cv2(msg, "bgr8")
+        cv_image_rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
+
+
 if __name__ == "__main__":
     main()
