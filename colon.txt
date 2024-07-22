@@ -1,4 +1,6 @@
 
+colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release --packages-skip copley_ros
+
 sudo systemctl restart nmea_broadcaster
 
 source /opt/ros/humble/setup.bash
