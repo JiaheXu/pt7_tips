@@ -70,7 +70,7 @@ class llava_node(Node):
         else:
             args.conv_mode = self.conv_mode
 
-        
+        self.conv = conv_templates[args.conv_mode].copy()
         self.roles = {}
 
         
@@ -86,7 +86,7 @@ class llava_node(Node):
         self.idx = 0
         self.image = load_image(args.image_file)
 
-        timer_period = 1.0 #1hz        
+        timer_period = 10.0 #1hz        
         self.timer = self.create_timer(timer_period, self.timer_callback)
         print("init !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
@@ -118,7 +118,7 @@ class llava_node(Node):
             self.conv.append_message( self.conv.roles[1], None)
             prompt = self.conv.get_prompt()
 
-            input_ids = tokenizer_image_token(prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).to(model.device)
+            input_ids = tokenizer_image_token(prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).to(self.model.device)
             stop_str = self.conv.sep if self.conv.sep_style != SeparatorStyle.TWO else self.conv.sep2
             keywords = [stop_str]
             streamer = TextStreamer(self.tokenizer, skip_prompt=True, skip_special_tokens=True)
@@ -130,9 +130,9 @@ class llava_node(Node):
                     input_ids,
                     images=image_tensor,
                     image_sizes=[image_size],
-                    do_sample=True if args.temperature > 0 else False,
-                    temperature=args.temperature,
-                    max_new_tokens=args.max_new_tokens,
+                    do_sample=True if self.args.temperature > 0 else False,
+                    temperature=self.args.temperature,
+                    max_new_tokens=self.args.max_new_tokens,
                     streamer=streamer,
                     use_cache=True)
 
@@ -154,7 +154,7 @@ def main(args= None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default="liuhaotian/llava-v1.5-13b")
+    parser.add_argument("--model-path", type=str, default="liuhaotian/llava-llama-2-13b-chat-lightning-preview")
     parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--image-file", type=str, default="/data/images/human1.png", required=True)
     parser.add_argument("--device", type=str, default="cuda")
