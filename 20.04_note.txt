@@ -1,3 +1,5 @@
+pip3 install setuptools==67.2.0
+
 sudo nmap -sn 10.3.1.0/24
 
 export PATH=$PATH:/usr/local/cuda/bin
