@@ -5,6 +5,7 @@ docker run \
     --gpus all \
     --privileged \
     -e DISPLAY=${DISPLAY} \
+    --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $DATA_PATH:/ws \
     --network=host --name skills -it 4766ab79dd80
