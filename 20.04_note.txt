@@ -1,3 +1,6 @@
+p_mesh + texture parameterization etc, set border to 1 pixel
+
+
 sudo iftop
 np.set_printoptions(suppress=True,precision=4)
 apt install libstdc++-12-dev
