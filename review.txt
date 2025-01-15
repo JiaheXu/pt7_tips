@@ -1,0 +1,16 @@
+Summary Of Paper:
+
+Review:
+
+
+Strengths:
+Clarity of the paper is good.
+Benchmarking is ok but should be tried on different tasks.
+Figures and the explanations are clear.
+
+Weaknesses:
+
+Originality: Good
+Technical Quality: Fair
+Clarity Of Presentation: Good: Minor revision needed to improve organization or clarity.
+Potential Impact: Fair
