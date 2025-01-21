@@ -130,3 +130,50 @@ sudo cp /usr/local/glibc/lib/libm-2.29.so /usr/lib/aarch64-linux-gnu
 strings /usr/lib/aarch64-linux-gnu/libm.so.6 | grep GLIBC_
 
 #####################################################################################################
+ros2 run tf2_ros tf2_echo spot2/base_link spot2/arm_link_wr1 # EE???
+- Translation: [0.358, 0.000, 0.263]
+- Rotation: in Quaternion [-0.004, 0.009, 0.001, 1.000]
+- Rotation: in RPY (radian) [-0.008, 0.019, 0.002]
+- Rotation: in RPY (degree) [-0.476, 1.082, 0.138]
+- Matrix:
+  1.000 -0.003  0.019  0.358
+  0.002  1.000  0.008  0.000
+ -0.019 -0.008  1.000  0.263
+  0.000  0.000  0.000  1.000
+
+
+
+ros2 run tf2_ros tf2_echo spot2/arm_link_wr1 spot2/hand_color_image_sensor
+- Translation: [0.138, 0.020, 0.025]
+- Rotation: in Quaternion [-0.459, 0.459, -0.538, 0.538]
+- Rotation: in RPY (radian) [-1.414, 0.000, -1.571]
+- Rotation: in RPY (degree) [-81.000, 0.000, -90.000]
+- Matrix:
+  0.000  0.156  0.988  0.138
+ -1.000  0.000  0.000  0.020
+ -0.000 -0.988  0.156  0.025
+  0.000  0.000  0.000  1.000
+
+
+ros2 run tf2_ros tf2_echo spot2/base_link spot2/left
+- Translation: [-0.166, 0.110, 0.038]
+- Rotation: in Quaternion [-0.796, 0.018, -0.023, 0.605]
+- Rotation: in RPY (radian) [-1.842, -0.014, -0.056]
+- Rotation: in RPY (degree) [-105.512, -0.799, -3.219]
+- Matrix:
+  0.998 -0.002  0.058 -0.166
+ -0.056 -0.268  0.962  0.110
+  0.014 -0.963 -0.267  0.038
+  0.000  0.000  0.000  1.000
+
+
+ros2 run tf2_ros tf2_echo spot2/base_link spot2/right
+- Translation: [-0.168, -0.109, 0.036]
+- Rotation: in Quaternion [0.796, 0.002, 0.005, 0.605]
+- Rotation: in RPY (radian) [1.841, -0.006, 0.009]
+- Rotation: in RPY (degree) [105.501, -0.367, 0.544]
+- Matrix:
+  1.000 -0.004  0.011 -0.168
+  0.009 -0.267 -0.964 -0.109
+  0.006  0.964 -0.267  0.036
+  0.000  0.000  0.000  1.000
