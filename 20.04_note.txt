@@ -1,4 +1,5 @@
 p_mesh + texture parameterization etc, set border to 1 pixel
+git remote set-url origin git@github.com:JiaheXu/
 
 pip3 install pyyaml==5.3.1 docker-compose
 
