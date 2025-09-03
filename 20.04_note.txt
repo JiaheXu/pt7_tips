@@ -5,12 +5,13 @@ rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO}
 p_mesh + texture parameterization etc, set border to 1 pixel
 git remote set-url origin git@github.com:JiaheXu/
 
-pip3 install pyyaml==5.3.1 docker-compose
+
 
 sudo iftop
 np.set_printoptions(suppress=True,precision=4)
 apt install libstdc++-12-dev
-pip3 install setuptools==67.2.0
+
+
 
 
 check ./data/processed_bimanual/filter.py, modify it to rearrange the directory layout
@@ -68,9 +69,7 @@ sudo /usr/sbin/nvpmodel -m $ID
 
 sdkmanager --archived-versions
 
-sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
-sudo pip3 install pyopenssl
-sudo pip3 install pyopenssl --upgrade
+
 
 sudo apt-get update -y
 sudo apt upgrade -y
@@ -81,6 +80,16 @@ sudo pip install pyopenssl wheel PyYAML pexpect python-dotenv
 sudo pip3 install wheel setuptools shyaml psutil rospkg jinja2==3.0.3
 
 pip3 install docker==6.1.3 requests==2.31.0
+
+
+javis deployer local.whisper.make
+pip3 install pyyaml==5.3.1
+pip3 install setuptools==67.2.0
+pip3 install paramiko==3.4.1
+pip3 install docker-compose==1.29.2
+sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL
+sudo pip3 install pyopenssl
+sudo pip3 install pyopenssl --upgrade
 
 sudo groupadd docker
     sudo usermod -aG docker $USER
