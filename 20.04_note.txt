@@ -5,6 +5,16 @@ rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO}
 p_mesh + texture parameterization etc, set border to 1 pixel
 git remote set-url origin git@github.com:JiaheXu/
 
+wifi dongle: (not sure why it worked)
+sudo apt update
+sudo apt install build-essential linux-source dkms
+
+sudo apt install usb-modeswitch usb-modeswitch-data
+sudo apt install build-essential bc git libncurses5-dev flex bison
+sudo modprobe rndis_host
+ 1997  sudo ip link set enxac0033aa9633 up
+ 1998  sudo dhclient enxac0033aa9633
+ 1999  ip addr show enxac0033aa9633
 
 
 sudo iftop
