@@ -1,1 +1,0 @@
-rosrun socketcan_bridge socketcan_bridge_node
