@@ -2,7 +2,7 @@ whisper audio_test.m4a  --output_format srt
 
 sudonim serve --model /home/developer/model_data/mlc_llm/dusty-nv/Qwen2.5-0.5B-Instruct-q4f16_ft-MLC --quantization q4f16_ft --max-batch-size 1 --max-context-len 4096 --prefill-chunk 4096 --host 0.0.0.0 --port 9000
 
-
+docker stop $(docker ps -q)
 rosdep install -y --from-paths . --ignore-src --rosdistro ${ROS_DISTRO}
 
 p_mesh + texture parameterization etc, set border to 1 pixel
